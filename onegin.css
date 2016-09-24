@@ -62,9 +62,17 @@ quote {
 quote + quote {
     margin-top: 1em;
 }
+quote > div {
+    display: inline-block;
+    text-align: left;
+    width: 10em;
+}
 p {
     margin: 0;
     white-space: pre;
+}
+p + p {
+    margin-top: 1.3em;
 }
 p:last-child {
     margin-bottom: 5em;
