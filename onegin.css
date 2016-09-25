@@ -51,9 +51,12 @@ main > div {
 h2 {
     margin-top: 2em;
 }
-h2, h3 {
+h2, h3, h4 {
     margin-right: 3em;
     text-align: center;
+}
+h4 {
+    margin-bottom: 5em;
 }
 quote {
     display: block;
@@ -118,7 +121,7 @@ sup {
         margin: 0 5vw;
         width: 90vw;
     }
-    h2, h3 {
+    h2, h3, h4 {
         margin-right: 0;
     }
 }
