@@ -8,37 +8,108 @@ html, body {
     font-family: Georgia, serif;
     width: 100%;
 }
+
+/**
+ * Навигация
+ */
 nav {
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav > a {
+    text-decoration: none;
+}
+
+/* Главы */
+nav#chapters {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.3em 1em;
+/*    background-color: #eee;*/
+}
+nav#chapters > a,
+nav#chapters > a:link,
+nav#chapters > a:visited {
+    color: silver;
+}
+nav#chapters > a.active,
+nav#chapters > a:hover,
+nav#chapters > a:active {
+    color: grey;
+}
+nav#chapters > a > .short {
+    display: none;
+}
+
+/* Переход к следующей или предыдущей главе — внизу */
+nav#next {
+    padding: 1.3em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+nav#next > a,
+nav#next > a:link,
+nav#next > a:visited {
+    color: silver;
+}
+nav#next > a:hover,
+nav#next > a:active {
+    color: grey;
+}
+
+/* Менюшка со строфами */
+nav#show-anchors > #show-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    padding: .3em .6em;
+    color: grey;
+/*    background-color: #ddd;*/
+    z-index: 10;
+}
+
+nav#anchors {
     position: fixed;
     background-color: #f7f7f7;
     top: 0;
-    left: 0;
+    right: -300px;
     width: 300px;
     height: 100%;
+    padding: 1.3em 0 4em;
     overflow-y: scroll;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 2;
+    transition: right .3s;
+    z-index: 20;
 }
-nav > a {
+nav#anchors.open { right: 0; }
+
+nav#anchors > #hide-nav {
+    font-size: 20px;
+    padding: .3em .6em;
+    line-height: 1.3;
+}
+
+nav#anchors > a {
     display: block;
     padding: 0 1em;
-    text-decoration: none;
     color: grey;
     white-space: nowrap;
 }
-nav > a:hover {
+nav#anchors > a:hover {
     background-color: #f0f0f0;
 }
-nav > a > small {
+nav#anchors > a > small {
     color: silver;
 }
 
-
-main {
-    margin-left: 300px;
-    
+/**
+ * Основной текст
+ */
+main {    
 /*    background-color: #ddfbff;*/
 }
 main > div {
@@ -56,7 +127,7 @@ h2, h3, h4 {
     text-align: center;
 }
 h4 {
-    margin-bottom: 5em;
+    margin-bottom: 2.6em;
 }
 quote {
     display: block;
@@ -80,28 +151,23 @@ p + p {
     margin-top: 1.3em;
 }
 p:last-child {
-    margin-bottom: 5em;
+    margin-bottom: 2.6em;
 }
 sup {
     display: none;
 }
 
 
+@media (max-width: 1200px) {
+    nav#chapters > a > .short { display: inline; }
+    nav#chapters > a > .long { display: none; }
+}
+
 @media (max-width: 700px) {
-    nav {
-        width: 40px;
-        text-align: right;
-    }
-    nav > a {
-        padding: 0 .5em;
-    }
-    nav > a > small,
-    nav > a > span {
-        display: none;
-    }
+    nav#chapters > a > .chptr { display: none; }
     
-    main {
-        margin-left: 40px;
+    nav#anchors > a {
+        padding: 0 .5em;
     }
     main > div {
         margin: 0 auto;
@@ -111,12 +177,6 @@ sup {
     html, body {
         font-size: calc(15px + (18 - 15) * (100vw - 320px) / (400 - 320));
     }
-    nav {
-        display: none;
-    }
-    main {
-        margin-left: 0;
-    }
     main > div {
         margin: 0 5vw;
         width: 90vw;
@@ -124,4 +184,8 @@ sup {
     h2, h3, h4 {
         margin-right: 0;
     }
+    nav#anchors {
+        width: 200px;
+    }
+    
 }
