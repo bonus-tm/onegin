@@ -1,11 +1,27 @@
 // Цветовая схема
-bgColor = #fff
-textColor = #000
-linkColor = #c0c0c0
-activeLinkColor = #808080
-navBgColor = #f7f7f7
-navShadow = -5px 0px 8px alpha(#000, 0.1)
-roastbeefBgColor = alpha(#fff, .8)
+white_bgColor          = #fbfbfb
+white_textColor        = #202020
+white_linkColor        = lighten(white_textColor, 70%)
+white_activeLinkColor  = lighten(white_textColor, 40%)
+white_navBgColor       = darken(white_bgColor, 3%)
+white_navShadow        = -5px 0px 8px alpha(#000, 0.1)
+white_roastbeefBgColor = alpha(white_bgColor, 0.8)
+
+sepia_bgColor          = #f9f2e5
+sepia_textColor        = #55361e
+sepia_linkColor        = desaturate(lighten(sepia_textColor, 70%), 70%)
+sepia_activeLinkColor  = desaturate(lighten(sepia_textColor, 40%), 70%)
+sepia_navBgColor       = darken(sepia_bgColor, 3%)
+sepia_navShadow        = -5px 0px 8px alpha(sepia_textColor, 0.1)
+sepia_roastbeefBgColor = alpha(sepia_bgColor, 0.8)
+
+black_bgColor          = #171717
+black_textColor        = #b6b6ad
+black_linkColor        = darken(black_textColor, 50%)
+black_activeLinkColor  = darken(black_textColor, 20%)
+black_navBgColor       = lighten(black_bgColor, 5%)
+black_navShadow        = -1px 0px 0px alpha(black_textColor, 0.1)
+black_roastbeefBgColor = alpha(black_bgColor, 0.8)
 
 // Основные теги
 *
@@ -18,8 +34,6 @@ body
   font-family Georgia, serif
   font-size 18px
   line-height 1.3
-  background bgColor
-  color textColor
   
   @media (max-width: 400px)
     font-size calc(15px + (18 - 15) * (100vw - 320px) / (400 - 320))
@@ -27,21 +41,59 @@ body
 a
   text-decoration none
   
-  &:link
-  &:visited
-    color linkColor
-
-  &:hover
-  &:active
-  &.active
-    color activeLinkColor
-  
   &:hover
     text-decoration underline
 
+// Выключенные сноски
 sup
   display none
 
+/**
+ * 
+ */
+#themes-selector
+  padding 6px 12px
+  display flex
+  justify-content center
+  
+  @media (max-width: 400px)
+    justify-content space-around
+  
+  a
+    border 1px solid #a0a0a0
+    padding 5px
+    margin 0 10px
+    width 28px
+    height 28px
+    border-radius (@width / 2)
+    font-size 18px
+    line-height 1
+    text-align center
+    cursor pointer
+    
+    &:hover
+      text-decoration none
+    
+    @media (max-width: 400px)
+      margin 0
+    
+    &.white
+      background #fbfbfb
+      color #fbfbfb
+      &.selected
+        color #202020
+        
+    &.sepia
+      background #f9f2e5
+      color #f9f2e5
+      &.selected
+        color #55361e
+        
+    &.black
+      background #171717
+      color #171717
+      &.selected
+        color #b6b6ad
 
 /**
  * Навигация
@@ -92,28 +144,24 @@ nav
       font-size 20px
       line-height 20px
       padding 10px 12px
-      color activeLinkColor
-      background-color roastbeefBgColor
       z-index 10
-    
+
       
   // Менюшка со строфами 
   &#anchors
     position fixed
-    background-color navBgColor
     width 300px
     height 100%
     top 0
     right 0
     transform translateX(310px)
     transition transform 300ms ease-in
-    padding 40px 0 4em
+    padding 0 0 4em
     font-size 16px
     line-height 2
     overflow-y scroll
     overflow-x hidden
     -webkit-overflow-scrolling touch
-    box-shadow navShadow
     z-index 20
     
     @media (max-width: 400px)
@@ -139,7 +187,6 @@ nav
         right 0
         height 100%
         width 40px
-        background linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(247,247,247,1) 100%)
 
       &:hover
         text-decoration none
@@ -202,3 +249,68 @@ p
 
 p + p
   margin-top 1.3em
+
+
+/**
+ * Определение цветовых схем
+ */
+// 
+body.white
+  background white_bgColor
+  color white_textColor
+  a
+    &:link
+    &:visited
+      color white_linkColor
+    &:hover
+    &:active
+    &.active
+      color white_activeLinkColor
+  #roast-beef
+    color white_activeLinkColor
+    background-color white_roastbeefBgColor
+  nav#anchors
+    background-color white_navBgColor
+    box-shadow white_navShadow
+    > a:before
+      background linear-gradient(to right, alpha(white_navBgColor,0) 0%, white_navBgColor 100%)
+  
+body.sepia
+  background sepia_bgColor
+  color sepia_textColor
+  a
+    &:link
+    &:visited
+      color sepia_linkColor
+    &:hover
+    &:active
+    &.active
+      color sepia_activeLinkColor
+  #roast-beef
+    color sepia_activeLinkColor
+    background-color sepia_roastbeefBgColor
+  nav#anchors
+    background-color sepia_navBgColor
+    box-shadow sepia_navShadow
+    > a:before
+      background linear-gradient(to right, alpha(sepia_navBgColor,0) 0%, sepia_navBgColor 100%)
+  
+body.black
+  background black_bgColor
+  color black_textColor
+  a
+    &:link
+    &:visited
+      color black_linkColor
+    &:hover
+    &:active
+    &.active
+      color black_activeLinkColor
+  #roast-beef
+    color black_activeLinkColor
+    background-color black_roastbeefBgColor
+  nav#anchors
+    background-color black_navBgColor
+    box-shadow black_navShadow
+    > a:before
+      background linear-gradient(to right, alpha(black_navBgColor,0) 0%, black_navBgColor 100%)

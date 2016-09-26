@@ -8,8 +8,6 @@ body {
   font-family: Georgia, serif;
   font-size: 18px;
   line-height: 1.3;
-  background: #fff;
-  color: #000;
 }
 @media (max-width: 400px) {
   html,
@@ -20,20 +18,70 @@ body {
 a {
   text-decoration: none;
 }
-a:link,
-a:visited {
-  color: #c0c0c0;
-}
-a:hover,
-a:active,
-a.active {
-  color: #808080;
-}
 a:hover {
   text-decoration: underline;
 }
 sup {
   display: none;
+}
+/**
+ * 
+ */
+#themes-selector {
+  padding: 6px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (max-width: 400px) {
+  #themes-selector {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+#themes-selector a {
+  border: 1px solid #a0a0a0;
+  padding: 5px;
+  margin: 0 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+#themes-selector a:hover {
+  text-decoration: none;
+}
+@media (max-width: 400px) {
+  #themes-selector a {
+    margin: 0;
+  }
+}
+#themes-selector a.white {
+  background: #fbfbfb;
+  color: #fbfbfb;
+}
+#themes-selector a.white.selected {
+  color: #202020;
+}
+#themes-selector a.sepia {
+  background: #f9f2e5;
+  color: #f9f2e5;
+}
+#themes-selector a.sepia.selected {
+  color: #55361e;
+}
+#themes-selector a.black {
+  background: #171717;
+  color: #171717;
+}
+#themes-selector a.black.selected {
+  color: #b6b6ad;
 }
 /**
  * Навигация
@@ -89,13 +137,10 @@ nav#permanent #roast-beef {
   font-size: 20px;
   line-height: 20px;
   padding: 10px 12px;
-  color: #808080;
-  background-color: rgba(255,255,255,0.8);
   z-index: 10;
 }
 nav#anchors {
   position: fixed;
-  background-color: #f7f7f7;
   width: 300px;
   height: 100%;
   top: 0;
@@ -106,13 +151,12 @@ nav#anchors {
   transition: -webkit-transform 300ms ease-in;
   transition: transform 300ms ease-in;
   transition: transform 300ms ease-in, -webkit-transform 300ms ease-in;
-  padding: 40px 0 4em;
+  padding: 0 0 4em;
   font-size: 16px;
   line-height: 2;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  box-shadow: -5px 0px 8px rgba(0,0,0,0.1);
   z-index: 20;
 }
 @media (max-width: 400px) {
@@ -146,8 +190,6 @@ nav#anchors > a:before {
   right: 0;
   height: 100%;
   width: 40px;
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, #f7f7f7 100%);
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, #f7f7f7 100%);
 }
 nav#anchors > a:hover {
   text-decoration: none;
@@ -212,4 +254,82 @@ p:last-child {
 }
 p + p {
   margin-top: 1.3em;
+}
+/**
+ * Определение цветовых схем
+ */
+body.white {
+  background: #fbfbfb;
+  color: #202020;
+}
+body.white a:link,
+body.white a:visited {
+  color: #bcbcbc;
+}
+body.white a:hover,
+body.white a:active,
+body.white a.active {
+  color: #797979;
+}
+body.white #roast-beef {
+  color: #797979;
+  background-color: rgba(251,251,251,0.8);
+}
+body.white nav#anchors {
+  background-color: #f3f3f3;
+  box-shadow: -5px 0px 8px rgba(0,0,0,0.1);
+}
+body.white nav#anchors > a:before {
+  background: -webkit-linear-gradient(left, rgba(243,243,243,0) 0%, #f3f3f3 100%);
+  background: linear-gradient(to right, rgba(243,243,243,0) 0%, #f3f3f3 100%);
+}
+body.sepia {
+  background: #f9f2e5;
+  color: #55361e;
+}
+body.sepia a:link,
+body.sepia a:visited {
+  color: #ccc2bb;
+}
+body.sepia a:hover,
+body.sepia a:active,
+body.sepia a.active {
+  color: #998678;
+}
+body.sepia #roast-beef {
+  color: #998678;
+  background-color: rgba(249,242,229,0.8);
+}
+body.sepia nav#anchors {
+  background-color: #f6ecd9;
+  box-shadow: -5px 0px 8px rgba(85,54,30,0.1);
+}
+body.sepia nav#anchors > a:before {
+  background: -webkit-linear-gradient(left, rgba(246,236,217,0) 0%, #f6ecd9 100%);
+  background: linear-gradient(to right, rgba(246,236,217,0) 0%, #f6ecd9 100%);
+}
+body.black {
+  background: #171717;
+  color: #b6b6ad;
+}
+body.black a:link,
+body.black a:visited {
+  color: #5e5e54;
+}
+body.black a:hover,
+body.black a:active,
+body.black a.active {
+  color: #959587;
+}
+body.black #roast-beef {
+  color: #959587;
+  background-color: rgba(23,23,23,0.8);
+}
+body.black nav#anchors {
+  background-color: #232323;
+  box-shadow: -1px 0px 0px rgba(182,182,173,0.1);
+}
+body.black nav#anchors > a:before {
+  background: -webkit-linear-gradient(left, rgba(35,35,35,0) 0%, #232323 100%);
+  background: linear-gradient(to right, rgba(35,35,35,0) 0%, #232323 100%);
 }

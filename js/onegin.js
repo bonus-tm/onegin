@@ -86,8 +86,28 @@ function getWindowWidth() {
 	return w.innerWidth || e.clientWidth || g.clientWidth;
 }
 
+function changeTheme(e) {
+	e.preventDefault();
+	document.body.className = e.target.id;
+	document.querySelectorAll("#themes-selector > a").forEach(function(el) {
+		el.classList.remove("selected");
+	});
+	e.target.classList.add("selected");
+	localStorage.setItem("oneginTheme", e.target.id);
+	return false;
+}
+
+
 ready(function () {
+	var theme = localStorage.getItem("oneginTheme") || "white";
+	document.body.className = theme;
+	document.getElementById(theme).classList.add("selected");
+	
+	
 	document.getElementById("roast-beef").addEventListener("click", showNav);
+	document.querySelectorAll("#themes-selector > a").forEach(function(el) {
+		el.addEventListener("click", changeTheme);
+	});
 	
 	document.addEventListener("mousedown", onTouchstart);
 	document.addEventListener("touchstart", onTouchstart);
