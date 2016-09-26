@@ -32,7 +32,7 @@ var Detect = {
 		this.start.clientY = null;
 		this.start.scrollTop = null;
 	},
-	is_click: function (event) {
+	isClick: function (event) {
 		this.delta.ts = Math.abs(event.timeStamp - this.start.ts);
 		this.delta.clientX = Math.abs((event.clientX || 0) - this.start.clientX);
 		this.delta.clientY = Math.abs((event.clientY || 0) - this.start.clientY);
@@ -48,33 +48,33 @@ var Detect = {
 
 
 function ready(fn) {
-	if (document.readyState != 'loading'){
+	if (document.readyState !== 'loading'){
 		fn();
 	} else {
 		document.addEventListener('DOMContentLoaded', fn);
 	}
 }
 
-function show_nav(e) {
+function showNav(e) {
 	e.preventDefault();
 	document.getElementById("anchors").classList.add("open");
 	return false;
 }
 
-function touchstart(e) {
-	Detect.init(e);
-}
-function hide_nav(e) {	
+function hideNav(e) {	
 	var tag = e.target;
-	while (tag.tagName.toLowerCase() !== "nav" && tag.tagName.toLowerCase() !== "body") {
+	while (tag.tagName.toLowerCase() !== "a" && tag.tagName.toLowerCase() !== "body") {
 		tag = tag.parentNode;
 	}
-	var not_nav = tag.tagName.toLowerCase() !== "nav",
-		is_click = Detect.is_click(e);
+	var not_a = tag.tagName.toLowerCase() !== "a",
+		is_click = Detect.isClick(e);
 	
-	if (not_nav && is_click) {
+	if (not_a && is_click) {
 		document.getElementById("anchors").classList.remove("open");
 	}
+}
+function onTouchstart(e) {
+	Detect.init(e);
 }
 
 function getWindowWidth() {
@@ -87,13 +87,13 @@ function getWindowWidth() {
 }
 
 ready(function () {
-	document.getElementById("show-nav").addEventListener("click", show_nav);
-	// document.getElementById("hide-nav").addEventListener("click", force_hide_nav);
+	document.getElementById("roast-beef").addEventListener("click", showNav);
 	
-	document.addEventListener("mousedown", touchstart);
-	document.addEventListener("mouseup", hide_nav);
-	document.addEventListener("touchstart", touchstart);
-	document.addEventListener("touchend", hide_nav);
+	document.addEventListener("mousedown", onTouchstart);
+	document.addEventListener("touchstart", onTouchstart);
+	
+	document.addEventListener("mouseup", hideNav);
+	document.addEventListener("touchend", hideNav);
 	
 	smoothScroll.init({
 	    speed: 500, // Integer. How fast to complete the scroll in milliseconds

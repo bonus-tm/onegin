@@ -4,11 +4,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Евгений Онегин — глава 6</title>
-<link rel="stylesheet" href="onegin.css" type="text/css" media="screen">
-<script src="smooth-scroll.min.js"></script>
+<link rel="stylesheet" href="css/onegin.css" type="text/css" media="screen">
+<script src="js/smooth-scroll.min.js"></script>
+<script src="js/onegin.min.js"></script>
 </head>
 <body>
-<nav>
+<nav id="permanent">
+    <a href="#" id="roast-beef">&#9776;</a>
+</nav>
+
+<nav id="chapters">
+    <a href="index.html">
+        <span class="chptr">Глава</span>
+        <span class="short">1</span>
+        <span class="long">первая</span>
+    </a>
+    <a href="ch2.html">
+        <span class="chptr">Глава</span>
+        <span class="short">2</span>
+        <span class="long">вторая</span>
+    </a>
+    <a href="ch3.html">
+        <span class="chptr">Глава</span>
+        <span class="short">3</span>
+        <span class="long">третья</span>
+    </a>
+    <a href="ch4.html">
+        <span class="chptr">Глава</span>
+        <span class="short">4</span>
+        <span class="long">четвёртая</span>
+    </a>
+    <a href="ch5.html">
+        <span class="chptr">Глава</span>
+        <span class="short">5</span>
+        <span class="long">пятая</span>
+    </a>
+    <a href="ch6.html" class="active">
+        <span class="chptr">Глава</span>
+        <span class="short">6</span>
+        <span class="long">шестая</span>
+    </a>
+    <a href="ch7.html">
+        <span class="chptr">Глава</span>
+        <span class="short">7</span>
+        <span class="long">седьмая</span>
+    </a>
+    <a href="ch8.html">
+        <span class="chptr">Глава</span>
+        <span class="short">8</span>
+        <span class="long">восьмая</span>
+    </a>
+</nav>
+
+<nav id="anchors">
 <a href="#p1" data-scroll>1. <small>Заметив, что Владимир скрылся,</small></a>
 <a href="#p2" data-scroll>2. <small>Все успокоилось: в гостиной</small></a>
 <a href="#p3" data-scroll>3. <small>Его нежданным появленьем,</small></a>
@@ -55,7 +103,7 @@
 </nav>
 
 <main>
-<div>
+<div class="text">
 <h2><span id="p1">ГЛАВА ШЕСТАЯ</span></h2>
 
 <quote>
@@ -756,11 +804,26 @@ Sed alia tempora! Удалость
 </p>
 </div>
 </main>
-<script>
-smoothScroll.init({
-    speed: 500, // Integer. How fast to complete the scroll in milliseconds
-    easing: 'easeOutQuart', // Easing pattern to use
-});
-</script>
+
+<nav id="next">
+    <a href="ch5.html" class="prev">
+        &lt;
+        Глава
+        <span class="long">пятая</span>
+        <span class="short">5</span>
+    </a>
+    <span>
+        Конец
+        <span class="long">шестой</span>
+        главы
+        <span class="short">6</span>
+    </span>
+    <a href="ch7.html" class="next">
+        Глава
+        <span class="long">седьмая</span>
+        <span class="short">7</span>
+        &gt;
+    </a>
+</nav>
 </body>
 </html>
