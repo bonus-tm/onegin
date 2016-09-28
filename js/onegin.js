@@ -89,9 +89,10 @@ function getWindowWidth() {
 function changeTheme(e) {
 	e.preventDefault();
 	document.body.className = e.target.id;
-	document.querySelectorAll("#themes-selector > a").forEach(function(el) {
-		el.classList.remove("selected");
-	});
+	var theme_selectors = document.querySelectorAll("#themes-selector > a");
+	for (var i = 0; i < theme_selectors.length; i++) {
+		theme_selectors[i].classList.remove("selected");
+	}
 	e.target.classList.add("selected");
 	localStorage.setItem("oneginTheme", e.target.id);
 	return false;
@@ -99,22 +100,26 @@ function changeTheme(e) {
 
 
 ready(function () {
+	// Восстановление выбранной цветовой схемы после перезагрузки страницы
 	var theme = localStorage.getItem("oneginTheme") || "white";
 	document.body.className = theme;
 	document.getElementById(theme).classList.add("selected");
 	
-	
+	// Открывашка менюшки и переключатели цветовой схемы
 	document.getElementById("roast-beef").addEventListener("click", showNav);
-	document.querySelectorAll("#themes-selector > a").forEach(function(el) {
-		el.addEventListener("click", changeTheme);
-	});
+	var theme_selectors = document.querySelectorAll("#themes-selector > a");
+	for (var i = 0; i < theme_selectors.length; i++) {
+		theme_selectors[i].addEventListener("click", changeTheme);
+	}
 	
+	// Обработчики кликов-тапов для скрытия менюшки
 	document.addEventListener("mousedown", onTouchstart);
 	document.addEventListener("touchstart", onTouchstart);
 	
 	document.addEventListener("mouseup", hideNav);
 	document.addEventListener("touchend", hideNav);
 	
+	// Плавный скролл до строфы
 	smoothScroll.init({
 	    speed: 500, // Integer. How fast to complete the scroll in milliseconds
 	    easing: 'easeOutQuart', // Easing pattern to use
@@ -124,5 +129,4 @@ ready(function () {
 			}
 		}
 	});
-	
 });

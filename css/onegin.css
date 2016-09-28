@@ -259,7 +259,7 @@ p + p {
  * Определение цветовых схем
  */
 body.white {
-  background: #fbfbfb;
+  background: #fff;
   color: #202020;
 }
 body.white a:link,
@@ -273,15 +273,15 @@ body.white a.active {
 }
 body.white #roast-beef {
   color: #797979;
-  background-color: rgba(251,251,251,0.8);
+  background-color: rgba(255,255,255,0.8);
 }
 body.white nav#anchors {
-  background-color: #f3f3f3;
+  background-color: #f7f7f7;
   box-shadow: -5px 0px 8px rgba(0,0,0,0.1);
 }
 body.white nav#anchors > a:before {
-  background: -webkit-linear-gradient(left, rgba(243,243,243,0) 0%, #f3f3f3 100%);
-  background: linear-gradient(to right, rgba(243,243,243,0) 0%, #f3f3f3 100%);
+  background: -webkit-linear-gradient(left, rgba(247,247,247,0) 0%, #f7f7f7 100%);
+  background: linear-gradient(to right, rgba(247,247,247,0) 0%, #f7f7f7 100%);
 }
 body.sepia {
   background: #f9f2e5;
@@ -301,12 +301,12 @@ body.sepia #roast-beef {
   background-color: rgba(249,242,229,0.8);
 }
 body.sepia nav#anchors {
-  background-color: #f6ecd9;
+  background-color: #f2ebdd;
   box-shadow: -5px 0px 8px rgba(85,54,30,0.1);
 }
 body.sepia nav#anchors > a:before {
-  background: -webkit-linear-gradient(left, rgba(246,236,217,0) 0%, #f6ecd9 100%);
-  background: linear-gradient(to right, rgba(246,236,217,0) 0%, #f6ecd9 100%);
+  background: -webkit-linear-gradient(left, rgba(242,235,221,0) 0%, #f2ebdd 100%);
+  background: linear-gradient(to right, rgba(242,235,221,0) 0%, #f2ebdd 100%);
 }
 body.black {
   background: #171717;
