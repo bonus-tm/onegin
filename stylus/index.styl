@@ -1,0 +1,54 @@
+@import common
+
+footerHeight = 45px
+
+html
+body
+  height 100%
+  
+h1
+  text-align center
+
+h2
+  text-align center
+  margin-top 0
+
+nav
+  margin-left calc(50% - 4em)
+  margin-bottom 1em
+  display inline-block
+  
+  > a
+    display block
+    line-height 2
+
+a:link
+a:visited
+a:hover
+a:active
+  color white_textColor
+
+.wrap
+  min-height 100%
+  margin-bottom -(footerHeight)
+  padding-top 30px
+
+  &:after
+    content ""
+    display block
+    height footerHeight
+
+footer
+  height footerHeight
+  text-align center
+  color lighten(white_linkColor, 40%)
+  font-family Arial, Helvetica, sans-serif
+  font-size 12px
+  line-height 1.5
+
+  a:link
+  a:visited
+  a:hover
+  a:active
+    color lighten(white_linkColor, 40%)
+    text-decoration underline

@@ -1,48 +1,4 @@
-// Цветовая схема
-white_bgColor          = #ffffff
-white_textColor        = #202020
-white_linkColor        = lighten(white_textColor, 70%)
-white_activeLinkColor  = lighten(white_textColor, 40%)
-white_navBgColor       = darken(white_bgColor, 3%)
-white_navShadow        = -5px 0px 8px alpha(#000, 0.1)
-white_roastbeefBgColor = alpha(white_bgColor, 0.8)
-
-sepia_bgColor          = #f9f2e5
-sepia_textColor        = #55361e
-sepia_linkColor        = desaturate(lighten(sepia_textColor, 70%), 70%)
-sepia_activeLinkColor  = desaturate(lighten(sepia_textColor, 40%), 70%)
-sepia_navBgColor       = desaturate(darken(sepia_bgColor, 3%), 30%)
-sepia_navShadow        = -5px 0px 8px alpha(sepia_textColor, 0.1)
-sepia_roastbeefBgColor = alpha(sepia_bgColor, 0.8)
-
-black_bgColor          = #171717
-black_textColor        = #b6b6ad
-black_linkColor        = darken(black_textColor, 50%)
-black_activeLinkColor  = darken(black_textColor, 20%)
-black_navBgColor       = lighten(black_bgColor, 5%)
-black_navShadow        = -1px 0px 0px alpha(black_textColor, 0.1)
-black_roastbeefBgColor = alpha(black_bgColor, 0.8)
-
-// Основные теги
-*
-  box-sizing border-box
-
-html
-body
-  width 100%
-  margin 0
-  font-family Georgia, serif
-  font-size 18px
-  line-height 1.3
-  
-  @media (max-width: 400px)
-    font-size calc(15px + (18 - 15) * (100vw - 320px) / (400 - 320))
-
-a
-  text-decoration none
-  
-  &:hover
-    text-decoration underline
+@import common
 
 // Выключенные сноски
 sup
@@ -99,104 +55,101 @@ sup
  * Навигация
  */
 nav
-  font-family Arial, Helvetica, sans-serif
-  
   .chptr
     @media (max-width: 700px)
     	display none 
-  
+
   .short
     display none
-    
+
     @media (max-width: 1200px)
     	display inline 
-      
+
   .long
     @media (max-width: 1200px)
     	display none
 
-  
-  // Главы
-  &#chapters
-    display flex
-    justify-content space-around
-    padding 10px 42px 10px 12px
-    line-height 20px
+// Главы
+#chapters
+  display flex
+  justify-content space-around
+  padding 10px 42px 10px 12px
+  line-height 20px
 
-  // Переход к следующей или предыдущей главе — внизу
-  &#next
-    padding 1.3em 1em
-    display flex
-    justify-content space-between
-    color silver
+// Переход к следующей или предыдущей главе — внизу
+#next
+  padding 1.3em 1em
+  display flex
+  justify-content space-between
+  color silver
 
 
-  // Кнопка открывания менюшки со строфами
-  &#permanent
-    a:hover
-      text-decoration none
-      
-    #roast-beef
-      display block
-      position fixed
-      top 0
-      right 0
-      font-size 20px
-      line-height 20px
-      padding 10px 12px
-      z-index 10
-
-      
-  // Менюшка со строфами 
-  &#anchors
+// Кнопка открывания менюшки со строфами
+#permanent
+  a:hover
+    text-decoration none
+    
+  #roast-beef
+    display block
     position fixed
-    width 300px
-    height 100%
     top 0
     right 0
-    transform translateX(310px)
-    transition transform 300ms ease-in
-    padding 0 0 4em
-    font-size 16px
-    line-height 2
-    overflow-y scroll
-    overflow-x hidden
-    -webkit-overflow-scrolling touch
-    z-index 20
+    font-size 20px
+    line-height 20px
+    padding 10px 12px
+    z-index 10
+
     
-    @media (max-width: 400px)
-      width 150px
+// Менюшка со строфами 
+#anchors
+  position fixed
+  width 300px
+  height 100%
+  top 0
+  right 0
+  transform translateX(310px)
+  transition transform 300ms ease-in
+  padding 0 0 4em
+  font-size 16px
+  line-height 2
+  overflow-y scroll
+  overflow-x hidden
+  -webkit-overflow-scrolling touch
+  z-index 20
+  
+  @media (max-width: 400px)
+    width 150px
 
-    &.open
-      transform translateX(0)
-      transition transform 300ms ease-out
+  &.open
+    transform translateX(0)
+    transition transform 300ms ease-out
 
-    > a
-      display block
-      position relative
-      padding 0 1em
-      white-space nowrap
-      
-      @media (max-width: 700px)  
-        padding 0 .5em
-      
-      &:before
-        content ""
-        position absolute
-        top 0
-        right 0
-        height 100%
-        width 40px
+  > a
+    display block
+    position relative
+    padding 0 1em
+    white-space nowrap
+    
+    @media (max-width: 700px)  
+      padding 0 .5em
+    
+    &:before
+      content ""
+      position absolute
+      top 0
+      right 0
+      height 100%
+      width 40px
 
-      &:hover
-        text-decoration none
+    &:hover
+      text-decoration none
 
 
 /**
  * Основной текст
  */
 main
-  // Основной текст
+// Основной текст
   .text
     margin 0 auto
     width 20em
